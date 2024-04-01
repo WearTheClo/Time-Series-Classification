@@ -10,6 +10,8 @@ from torch import optim
 
 from model.MLP import TSC_MLP
 from model.ResNet import resnet
+from model.Encoder import Encoder
+
 from data_provider import UCR_data_provider
 
 def work_process(args):
@@ -30,6 +32,8 @@ def work_process(args):
         model = TSC_MLP(input_size = UCR_dataset_train.input_size, output_size = UCR_dataset_train.output_size)
     elif args.model == 'CNN':#未实现
         model = resnet(input_size = UCR_dataset_train.input_size, output_size = UCR_dataset_train.output_size)
+    elif args.model == 'Encoder':
+        model = Encoder(input_size = UCR_dataset_train.input_size, output_size = UCR_dataset_train.output_size)
     model.to(args.device)
 
     loss_fn = nn.CrossEntropyLoss()#多维float32, 一维int64

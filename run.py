@@ -14,7 +14,7 @@ np.random.seed(fix_seed)
 parser = argparse.ArgumentParser(description='Time series classification')
 
 # basic config
-parser.add_argument('--model', type=str, default='MLP', help='model name, options: [MLP, CNN]')
+parser.add_argument('--model', type=str, default='Encoder', help='model name, options: [MLP, CNN, Encoder]')
 parser.add_argument('--checkpoints', type=str, default='./checkpoints/', help='location of model checkpoints')
 
 # data loader
